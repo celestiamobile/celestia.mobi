@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta charset="UTF-8">
+    <title>Celestia</title>
+    <script src="js/jquery-3.5.1.min.js"></script>
+  </head>
+  <body onload="fetchCategoryList();">
+    <p id="output"></p>
+    <script>
+      function fetchCategoryList() {
+        let url = window.location.origin + '/api/resource/categories'
+        let output = document.getElementById('output')
+        $.getJSON(url, {'lang' : 'en'}, function(response) {
+          if (response.status != 0) {
+            output.innerHTML = 'Loading category list failed'
+          } else {
+            let categories = JSON.parse(response.info.detail)
+            let html = ''
+            for (const category of categories) {
+              html += `<p><a href="category.html?id=${category.id}">${category.name}</a></p>`
+            }
+            output.innerHTML = html
+          }
+        })
+      }
+    </script>
+  </body>
+</html>

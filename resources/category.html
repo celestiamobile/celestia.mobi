@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta charset="UTF-8">
+    <title>Celestia</title>
+    <script src="js/jquery-3.5.1.min.js"></script>
+  </head>
+  <body onload="fetchItemList();">
+    <p id="output"></p>
+    <script>
+      function fetchItemList() {
+        let url = window.location.origin + '/api/resource/items'
+        let output = document.getElementById('output')
+        let category = new URLSearchParams(window.location.search).get('id')
+        $.getJSON(url, {'lang' : 'en', 'category' : category}, function(response) {
+          if (response.status != 0) {
+            output.innerHTML = 'Loading item list failed'
+          } else {
+            let items = JSON.parse(response.info.detail)
+            let html = ''
+            for (const item of items) {
+              html += `<p><a href="item.html?id=${item.id}">${item.name}</a></p>`
+            }
+            output.innerHTML = html
+          }
+        })
+      }
+    </script>
+  </body>
+</html>
