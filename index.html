@@ -1,55 +1,69 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="favicon.ico">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Celestia</title>
-      <link rel="stylesheet" href="css/linearicons.css">
-      <link rel="stylesheet" href="css/bootstrap.css">
-      <link rel="stylesheet" href="css/main.css">
+    <meta name="twitter:title" content="Celestia"/>
+    <meta name="og:title" content="Celestia"/>
+    <meta name="description" content="Celestia is a real-time space simulator."/>
+    <meta name="twitter:description" content="Celestia is a real-time space simulator."/>
+    <meta name="og:description" content="Celestia is a real-time space simulator."/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/png"/>
+    <link rel="stylesheet" href="/css/style.css" type="text/css"/>
   </head>
   <body>
-    <div class="oz-body-wrap">
-    <header class="default-header"></header>
-    <section class="banner-area relative">
-      <div class="container">
-        <div class="row align-items-center justify-content-center">
-          <div class="banner-left col-lg-6">
-            <img class="d-flex mx-auto img-fluid" src="img/celestia.png" alt="">
-          </div>
-          <div class="col-lg-6">
-            <div class="story-content">
-              <h1><span class="sp-1">Celestia</span><br></h1>
-              <a href="api/url" class="genric-btn macos circle arrow">Download<span class="lnr lnr-arrow-right"></span></a><br><br>
+    <main id="main" class="main">
+      <section class="section-header">
+        <div class="section-content">
+          <div class="row">
+            <div class="column large-centered large-10 small-12 text-center">
+              <div class="title-wrap">
+                <h2>Celestia</h2>
+              </div>
+              <div class="divider"></div>
             </div>
+          </div>
+        </div>
+      </section>
+      <article>
+        <section class="section section-hero">
+          <div class="section-content">
+            <div class="row">
+              <header class="column large-centered large-10 small-12 text-center">
+                <img class="icon-hero center" src="/img/icon.png"/>
+                <h1 class="typography-hero-headline">Welcome to Celestia</h1>
+                <p class="typography-intro">Celestia is available on 
+                  <a href="/download/ios.html">iOS</a>, 
+                  <a href="/download/play.html">Android (Google Play)</a>, 
+                  <a href="/download/huawei.html">Android (Huawei)</a>, 
+                  <a href="/download/xiaomi.html">Android (Xiaomi)</a>, 
+                  <a href="/download/android.html">Android (APK)</a>.
+                </p>
+              </header>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer id="footer" class="footer">
+      <div class="footer-content">
+        <div class="row">
+          <div class="column large-centered large-10 small-12">
+            <section class="footer-mini">
+              <div class="footer-mini-legal">
+                <div class="footer-mini-legal-copyright">© 2001-
+                  <script>document.write(new Date().getFullYear());</script>, Celestia Development Team.
+                </div>
+                <div class="footer-mini-legal-links">
+                  <a class="footer-mini-legal-link" href="https://celestia.space" target="_blank" rel="noopener">Home</a>
+                  <a class="footer-mini-legal-link" href="https://celestia.space/forum" target="_blank" rel="noopener">Forum</a>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </div>
-      </section>
-      <section class="contact-area pt-100 pb-100 relative">
-        <div class="overlay overlay-bg"></div>
-        <div class="container">
-          <div class="row justify-content-center text-center">
-            <div class="single-contact col-lg-6 col-md-8">
-              <h2 class="text-white"><span>Contact</span></h2><br>
-              <p class="text-white">
-                <a class="text-white" href="mailto:lilinfeng.app@outlook.com">lilinfeng.app@outlook.com</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <footer class="section-gap">
-        <div class="container">
-          <div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
-            <p class="footer-text m-0">Copyright &copy; 2001-<script>document.write(new Date().getFullYear());</script> Celestia Development Team. All rights reserved</p>
-          </div>
-        </div>
-      </footer>
-    </div>
-    <script src="js/vendor/jquery-2.2.4.min.js"></script>
-    <script src="js/main.js"></script>
+    </footer>
   </body>
 </html>
