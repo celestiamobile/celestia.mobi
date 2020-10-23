@@ -1,33 +1,82 @@
 <html>
   <head>
-    <!-- Mobile Specific Meta -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta charset="UTF-8">
-    <title>Celestia</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Add-on</title>
+    <meta name="twitter:title" content="Add-on"/>
+    <meta name="og:title" content="Add-on"/>
+    <meta name="description" content="Celestia is a real-time space simulator."/>
+    <meta name="twitter:description" content="Celestia is a real-time space simulator."/>
+    <meta name="og:description" content="Celestia is a real-time space simulator."/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/png"/>
+    <link rel="stylesheet" href="/css/style.css" type="text/css"/>
     <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/api.js"></script>
   </head>
   <body onload="fetchItem();">
-    <p id="output"></p>
+    <section class="section-header">
+      <div class="section-content">
+        <div class="row">
+          <div class="column large-centered large-10 small-12 text-center">
+            <div class="title-wrap">
+              <h2 id="add-on-title">Add-on</h2>
+            </div>
+            <div class="divider"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <main id="main" class="main">
+      <article>
+        <section class="section section-hero">
+          <div class="section-content">
+            <div class="row">
+              <header class="column large-centered large-10 small-12 text-center">
+                <p id="output"></p>
+              </header>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
     <script>
       function fetchItem() {
         let url = window.location.origin + '/api/resource/item'
         let output = document.getElementById('output')
+        let title = document.getElementById('add-on-title')
         let id = new URLSearchParams(window.location.search).get('id')
-        $.getJSON(url, {'lang' : 'en', 'item' : id}, function(response) {
-          if (response.status != 0) {
-            output.innerHTML = 'Loading item list failed'
-          } else {
-            let item = JSON.parse(response.info.detail)
-            let html = `<p>${item.name}</p>`
-            html += `<p>${item.description}</p>`
-            if (item.image)
-              html += `<img src="${item.image}">`
-            html += `<a href='${item.item}'>Download</a>`
-            output.innerHTML = html
-          }
+        fetchItemWithCallback(id, function(item) {
+          let html = `<p>${item.description}</p>`
+          if (item.image)
+            html += `<img src="${item.image}">`
+          html += `<a href='${item.item}'>Download</a>`
+          output.innerHTML = html
+          title.innerHTML = item.name
+        }, function() {
+          output.innerHTML = 'Loading item list failed'
         })
       }
     </script>
+    <footer id="footer" class="footer">
+      <div class="footer-content">
+        <div class="row">
+          <div class="column large-centered large-10 small-12">
+            <section class="footer-mini">
+              <div class="footer-mini-legal">
+                <div class="footer-mini-legal-copyright">© 2001-
+                  <script>document.write(new Date().getFullYear());</script>, Celestia Development Team.
+                </div>
+                <div class="footer-mini-legal-links">
+                  <a class="footer-mini-legal-link" href="/" rel="noopener">Home</a>
+                  <a class="footer-mini-legal-link" href="/resources/" rel="noopener">Add-ons</a>
+                  <a class="footer-mini-legal-link" href="https://celestia.space" target="_blank" rel="noopener">celestia.space</a>
+                  <a class="footer-mini-legal-link" href="https://celestia.space/forum" target="_blank" rel="noopener">Forum</a>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
