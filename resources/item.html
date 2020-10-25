@@ -46,9 +46,19 @@
         let title = document.getElementById('add-on-title')
         let id = new URLSearchParams(window.location.search).get('id')
         fetchItemWithCallback(id, function(item) {
-          let html = `<p>${item.description}</p>`
+          let html = ""
+          if (item.authors) {
+            html += `<p>Authors: ${item.authors.toString()}</p>`
+          }
+          if (item.publishTime) {
+            let date = new Date(item.publishTime * 1000)
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            html += `<p>Release date: ${date.toLocaleDateString('en-US', options)}</p>`
+          }
+
+          html += `<p>${item.description}</p>`
           if (item.image)
-            html += `<img src="${item.image}">`
+            html += `<p><img src="${item.image}"></p>`
           html += `<a href='${item.item}'>Download</a>`
           output.innerHTML = html
           title.innerHTML = item.name
