@@ -48,7 +48,7 @@
         fetchItemWithCallback(id, function(item) {
           let html = ""
           if (item.authors) {
-            html += `<p>Authors: ${item.authors.toString()}</p>`
+            html += `<p>Authors: ${item.authors.join(", ")}</p>`
           }
           if (item.publishTime) {
             let date = new Date(item.publishTime * 1000)
