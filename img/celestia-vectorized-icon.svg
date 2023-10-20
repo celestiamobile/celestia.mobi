@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1024 1024" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<path d="M537.601 12C261.459 12 37.601 235.858 37.601 512C37.6013 788.142 261.459 1012 537.601 1012C734.966 1012 905.092 897.295 986.399 731.231L787.841 731.231C725.914 799.558 637.314 843.25 537.841 843.25C350.921 843.25 199.38 691.708 199.38 504.788C199.38 317.869 350.921 166.327 537.841 166.327C642.95 166.327 735.857 215.184 797.938 290.365L985.438 290.365C903.682 125.558 734.045 12 537.601 12Z" id="Fill"/>
+<radialGradient cx="361.656" cy="88.8125" gradientTransform="matrix(7.69231 0 0 7.69231 -2244.37 -171.173)" gradientUnits="userSpaceOnUse" id="RadialGradient" r="65">
+<stop offset="0" stop-color="#ef9f46"/>
+<stop offset="0.653253" stop-color="#a9826a"/>
+<stop offset="0.779916" stop-color="#dcb685"/>
+<stop offset="0.882934" stop-color="#f9e0b0"/>
+<stop offset="1" stop-color="#b9a388"/>
+</radialGradient>
+<radialGradient cx="360.922" cy="88.7477" gradientTransform="matrix(7.69231 0 0 7.69231 -2244.37 -171.173)" gradientUnits="userSpaceOnUse" id="RadialGradient_2" r="30.2999">
+<stop offset="0" stop-color="#9c917d"/>
+<stop offset="0.0719408" stop-color="#9c917d"/>
+<stop offset="0.445971" stop-color="#b7a383"/>
+<stop offset="0.916557" stop-color="#d1bb8f"/>
+<stop offset="1" stop-color="#e0ccab"/>
+</radialGradient>
+</defs>
+<g id="Layer-1">
+<g opacity="1">
+<g opacity="1">
+<use fill="#11055c" fill-rule="nonzero" opacity="1" stroke="none" xlink:href="#Fill"/>
+<clipPath id="ClipPath">
+<use xlink:href="#Fill"/>
+</clipPath>
+<g clip-path="url(#ClipPath)">
+<path d="M37.601 512C37.601 235.858 261.459 12 537.601 12C813.743 12 1037.6 235.858 1037.6 512C1037.6 788.142 813.743 1012 537.601 1012C261.459 1012 37.601 788.142 37.601 512Z" fill="url(#RadialGradient)" fill-rule="nonzero" opacity="1" stroke="none"/>
+</g>
+</g>
+<path d="M298.875 511.501C298.875 382.777 403.226 278.425 531.951 278.425C660.675 278.425 765.027 382.777 765.027 511.501C765.027 640.226 660.675 744.577 531.951 744.577C403.226 744.577 298.875 640.226 298.875 511.501Z" fill="url(#RadialGradient_2)" fill-rule="nonzero" opacity="1" stroke="none"/>
+</g>
+</g>
+</svg>
