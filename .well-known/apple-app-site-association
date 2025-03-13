@@ -1,11 +1,21 @@
 {
-"applinks": {
-        "apps": [],
-        "details": [
-            {
-                "appID": "22NR5428TD.space.celestia.MobileCelestia",
-                "paths": ["/resources/item", "/resources/guide"]
-            }
-        ]
-    }
+  "applinks": {
+      "details": [
+           {
+             "appIDs": [ "22NR5428TD.space.celestia.MobileCelestia", "22NR5428TD.space.celestia.CelestiaXR" ],
+             "components": [
+               {
+                  "/": "/resources/item",
+                  "?": "item",
+                  "comment": "A link to an add-on"
+               },
+               {
+                  "/": "/resources/guide",
+                  "?": "guide",
+                  "comment": "A link to an article"
+               }
+             ]
+           }
+       ]
+   }
 }
