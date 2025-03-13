@@ -1,0 +1,11 @@
+{
+"applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "22NR5428TD.space.celestia.MobileCelestia",
+                "paths": ["/resources/item", "/resources/guide"]
+            }
+        ]
+    }
+}
