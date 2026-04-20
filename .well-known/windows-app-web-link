@@ -1,4 +1,7 @@
 [{
   "packageFamilyName" : "40507LinfengLi.Celestia_r7f2qt5a05s84",
   "paths" : [ "/resources/item", "/resources/item/*", "/resources/guide", "/resources/guide/*" ]
+ },{
+  "packageFamilyName" : "40507LinfengLi.Celestia_fp282a4n01tq8",
+  "paths" : [ "/resources/item", "/resources/item/*", "/resources/guide", "/resources/guide/*" ]
  }]
