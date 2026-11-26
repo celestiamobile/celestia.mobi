@@ -383,6 +383,9 @@ input[type="file"]::file-selector-button {
 .action-row-spread {
     justify-content: space-between;
 }
+.form-actions {
+    margin-block-start: 8px;
+}
 .field-group {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
