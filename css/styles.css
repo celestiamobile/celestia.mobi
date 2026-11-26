@@ -124,3 +124,224 @@
         font-size: 21px;
     }
 }
+:root {
+    --button-accent: #0071e3;
+    --button-accent-hover: #0068d0;
+    --button-accent-pressed: #005ebd;
+    --button-foreground: #fff;
+    --button-outline-border: rgba(0, 113, 227, .3);
+    --button-outline-background: rgba(0, 113, 227, .06);
+    --button-outline-hover: rgba(0, 113, 227, .12);
+    --button-outline-pressed: rgba(0, 113, 227, .18);
+    --segment-background: #f2f2f7;
+    --segment-foreground: #626267;
+    --segment-selected-background: var(--button-accent);
+    --segment-selected-foreground: var(--button-foreground);
+    --segment-hover: rgba(0, 0, 0, .04);
+}
+.theme-dark {
+    --button-accent: #6bf;
+    --button-accent-hover: #85c8ff;
+    --button-accent-pressed: #55adea;
+    --button-foreground: #08121c;
+    --button-outline-border: rgba(102, 187, 255, .4);
+    --button-outline-background: rgba(102, 187, 255, .1);
+    --button-outline-hover: rgba(102, 187, 255, .16);
+    --button-outline-pressed: rgba(102, 187, 255, .22);
+    --segment-background: #1c1c1e;
+    --segment-foreground: #b0b0b5;
+    --segment-selected-background: var(--button-accent);
+    --segment-selected-foreground: var(--button-foreground);
+    --segment-hover: rgba(255, 255, 255, .06);
+}
+.button-filled,
+.button-outline,
+.theme-dark .button-filled,
+.theme-dark .button-outline,
+input[type="file"]::file-selector-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: 36px;
+    min-height: 36px;
+    max-width: 100%;
+    padding: 7px 14px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: normal;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: background-color .15s, border-color .15s, color .15s;
+}
+.button-filled,
+.theme-dark .button-filled {
+    border: 1px solid var(--button-accent);
+    background: var(--button-accent);
+    color: var(--button-foreground);
+}
+.button-outline,
+.theme-dark .button-outline,
+input[type="file"]::file-selector-button {
+    border: 1px solid var(--button-outline-border);
+    background: var(--button-outline-background);
+    color: var(--button-accent);
+}
+.button-filled:hover:not(:disabled),
+.theme-dark .button-filled:hover:not(:disabled) {
+    border-color: var(--button-accent-hover);
+    background: var(--button-accent-hover);
+    opacity: 1;
+}
+.button-filled:active:not(:disabled),
+.theme-dark .button-filled:active:not(:disabled) {
+    border-color: var(--button-accent-pressed);
+    background: var(--button-accent-pressed);
+}
+.button-outline:hover:not(:disabled),
+.theme-dark .button-outline:hover:not(:disabled),
+input[type="file"]:not(:disabled)::file-selector-button:hover {
+    border-color: var(--button-accent);
+    background: var(--button-outline-hover);
+}
+.button-outline:active:not(:disabled),
+.theme-dark .button-outline:active:not(:disabled),
+input[type="file"]:not(:disabled)::file-selector-button:active {
+    background: var(--button-outline-pressed);
+}
+.button-filled:focus-visible,
+.button-outline:focus-visible,
+input[type="file"]:focus-visible {
+    outline: 2px solid var(--button-accent);
+    outline-offset: 3px;
+}
+.button-filled:disabled,
+.button-filled:disabled:hover,
+.button-outline:disabled,
+input[type="file"]:disabled::file-selector-button {
+    opacity: .45;
+    cursor: not-allowed;
+}
+.button-outline:disabled:hover,
+.theme-dark .button-outline:disabled:hover {
+    background: var(--button-outline-background);
+    opacity: .45;
+}
+.button-outline.small-button-outline {
+    min-width: 30px;
+    min-height: 30px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+input[type="file"]::file-selector-button {
+    margin-inline-end: 12px;
+}
+.segmented-control {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    max-width: 100%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background: var(--segment-background);
+}
+.segmented-control-button {
+    flex: 1;
+    box-sizing: border-box;
+    appearance: none;
+    min-height: 28px;
+    padding: 4px 12px;
+    border: 0;
+    border-radius: 7px;
+    background: transparent;
+    color: var(--segment-foreground);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: background-color .15s, color .15s;
+}
+.segmented-control-button.active {
+    background: var(--segment-selected-background);
+    color: var(--segment-selected-foreground);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .14);
+}
+.segmented-control-button.active:hover:not(:disabled) {
+    background: var(--button-accent-hover);
+}
+.segmented-control-button.active:active:not(:disabled) {
+    background: var(--button-accent-pressed);
+}
+.segmented-control-button:hover:not(.active):not(:disabled) {
+    background: var(--segment-hover);
+}
+.segmented-control-button:focus-visible {
+    outline: 2px solid var(--button-accent);
+    outline-offset: 2px;
+}
+.segmented-control-button:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+}
+.chip,
+.theme-dark .chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: 36px;
+    max-width: 100%;
+    padding: 6px 12px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: var(--segment-background);
+    color: var(--segment-foreground);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: background-color .15s, color .15s;
+}
+.chip-selected,
+.theme-dark .chip-selected {
+    border-color: var(--button-accent);
+    background: var(--button-accent);
+    color: var(--button-foreground);
+}
+.chip:hover:not(.chip-selected) {
+    background: var(--button-outline-hover);
+    color: var(--button-accent);
+    text-decoration: none;
+}
+.chip-selected:hover {
+    border-color: var(--button-accent-hover);
+    background: var(--button-accent-hover);
+    text-decoration: none;
+}
+.chip-selected:active {
+    border-color: var(--button-accent-pressed);
+    background: var(--button-accent-pressed);
+}
+.chip:focus-visible {
+    outline: 2px solid var(--button-accent);
+    outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+    .button-filled,
+    .button-outline,
+    .theme-dark .button-filled,
+    .theme-dark .button-outline,
+    input[type="file"]::file-selector-button,
+    .segmented-control-button,
+    .chip,
+    .theme-dark .chip {
+        transition: none;
+    }
+}
