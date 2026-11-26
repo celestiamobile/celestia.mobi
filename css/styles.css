@@ -34,7 +34,7 @@
 .rich-list-image {
     aspect-ratio: 3 / 2;
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: var(--surface-radius);
     background: #f2f2f7;
 }
 .rich-list-image img {
@@ -75,7 +75,7 @@
 .rich-list-link:focus-visible {
     outline: 2px solid #08f;
     outline-offset: 5px;
-    border-radius: 4px;
+    border-radius: var(--surface-radius);
 }
 .theme-dark .rich-list-link {
     border-color: #29292c;
@@ -116,7 +116,7 @@
         gap: 6px;
     }
     .rich-list-image {
-        border-radius: 8px;
+        border-radius: var(--compact-control-radius);
     }
 }
 @media only screen and (max-width: 1000px) {
@@ -136,6 +136,11 @@
     --text-primary: #1d1d1f;
     --text-muted: #6e6e73;
     --surface-radius: 12px;
+    --corner-shape: round;
+    --control-radius: 10px;
+    --compact-control-radius: 8px;
+    --segment-radius: calc(var(--control-radius) - 3px);
+    --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%236e6e73' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     --button-outline-border: rgba(0, 113, 227, .3);
     --button-outline-background: rgba(0, 113, 227, .06);
     --button-outline-hover: rgba(0, 113, 227, .12);
@@ -157,6 +162,7 @@
     --control-border: #48484c;
     --text-primary: #f5f5f7;
     --text-muted: #a1a1a6;
+    --select-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23a1a1a6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     --button-outline-border: rgba(102, 187, 255, .4);
     --button-outline-background: rgba(102, 187, 255, .1);
     --button-outline-hover: rgba(102, 187, 255, .16);
@@ -166,6 +172,12 @@
     --segment-selected-background: var(--button-accent);
     --segment-selected-foreground: var(--button-foreground);
     --segment-hover: rgba(255, 255, 255, .06);
+}
+.button {
+    border-radius: var(--control-radius);
+}
+.aside-container {
+    border-radius: var(--surface-radius);
 }
 .button-filled,
 .button-outline,
@@ -180,7 +192,7 @@ input[type="file"]::file-selector-button {
     min-height: 36px;
     max-width: 100%;
     padding: 7px 14px;
-    border-radius: 10px;
+    border-radius: var(--control-radius);
     font-family: inherit;
     font-size: 14px;
     font-weight: 600;
@@ -248,7 +260,7 @@ input[type="file"]:disabled::file-selector-button {
     min-width: 30px;
     min-height: 30px;
     padding: 4px 8px;
-    border-radius: 8px;
+    border-radius: var(--compact-control-radius);
     font-size: 14px;
 }
 .button-outline.small-button-outline.button-icon {
@@ -272,7 +284,7 @@ input[type="file"]::file-selector-button {
     padding: 4px;
     max-width: 100%;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: var(--control-radius);
     background: var(--segment-background);
 }
 .segmented-control-button {
@@ -282,7 +294,7 @@ input[type="file"]::file-selector-button {
     min-height: 28px;
     padding: 4px 12px;
     border: 0;
-    border-radius: 7px;
+    border-radius: var(--segment-radius);
     background: transparent;
     color: var(--segment-foreground);
     font: inherit;
@@ -324,7 +336,7 @@ input[type="file"]::file-selector-button {
     max-width: 100%;
     padding: 6px 12px;
     border: 1px solid transparent;
-    border-radius: 10px;
+    border-radius: var(--control-radius);
     background: var(--segment-background);
     color: var(--segment-foreground);
     font-family: inherit;
@@ -392,7 +404,7 @@ input[type="file"]::file-selector-button {
     max-width: 100%;
     min-height: 36px;
     padding: 6px 8px;
-    border-radius: 8px;
+    border-radius: var(--compact-control-radius);
     color: var(--text-primary);
     font-size: 14px;
     font-weight: 600;
@@ -437,7 +449,7 @@ input[type="file"]::file-selector-button {
     height: 44px;
     padding: 4px;
     border: 0;
-    border-radius: 14px;
+    border-radius: calc(var(--control-radius) + 4px);
     background-color: rgba(240, 240, 245, .94);
     background-clip: content-box;
     color: var(--text-primary);
@@ -485,7 +497,7 @@ input[type="file"]::file-selector-button {
     min-height: 36px;
     padding: 7px 10px;
     border: 1px solid var(--control-border);
-    border-radius: 10px;
+    border-radius: var(--control-radius);
     background: var(--surface);
     color: var(--text-primary);
     font: inherit;
@@ -499,6 +511,30 @@ input[type="file"]::file-selector-button {
 }
 textarea.form-control {
     resize: vertical;
+}
+select.form-control:not([multiple]):not([size]),
+select.form-control:not([multiple])[size="1"] {
+    -webkit-appearance: none;
+    appearance: none;
+    padding-inline-end: 36px;
+    background-image: var(--select-chevron);
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px 16px;
+}
+[dir="rtl"] select.form-control:not([multiple]):not([size]),
+[dir="rtl"] select.form-control:not([multiple])[size="1"] {
+    background-position: left 12px center;
+}
+@media (forced-colors: active) {
+    select.form-control:not([multiple]):not([size]),
+    select.form-control:not([multiple])[size="1"] {
+        -webkit-appearance: auto;
+        appearance: auto;
+        corner-shape: round;
+        padding-inline-end: 10px;
+        background-image: none;
+    }
 }
 .form-control::placeholder {
     color: var(--text-muted);
@@ -738,7 +774,7 @@ textarea.form-control {
     user-select: none;
 }
 .gallery-label-container {
-    border-radius: 6px;
+    border-radius: calc(var(--control-radius) - 4px);
 }
 .gallery-label {
     color: #fff;
@@ -887,5 +923,141 @@ textarea.form-control {
     }
     .table-scroll > table[class*="-chart"] td {
         min-width: 5.5em;
+    }
+}
+.carousel {
+    position: relative;
+    margin-bottom: 8px;
+}
+.carousel-track {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 4px;
+    list-style: none;
+    margin: 12px 0 0;
+    padding: 4px;
+    scrollbar-width: none;
+}
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+.carousel-track > li {
+    flex: 0 0 320px;
+    max-width: 80%;
+    aspect-ratio: 3 / 1;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--surface-border);
+    border-radius: var(--surface-radius);
+    corner-shape: var(--corner-shape);
+    box-sizing: border-box;
+    scroll-snap-align: start;
+}
+.carousel-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel-card:focus-visible {
+    outline: 2px solid var(--button-accent);
+    outline-offset: -2px;
+}
+.carousel-controls {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    pointer-events: none;
+}
+.carousel-controls[hidden] {
+    display: none;
+}
+.carousel-controls button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: auto;
+    z-index: 20;
+}
+.carousel-previous {
+    inset-inline-start: 4px;
+}
+.carousel-next {
+    inset-inline-end: 4px;
+}
+.carousel-controls svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.carousel-previous svg {
+    transform: rotate(180deg);
+}
+[dir="rtl"] .carousel-previous svg {
+    transform: none;
+}
+[dir="rtl"] .carousel-next svg {
+    transform: rotate(180deg);
+}
+.carousel-controls button:disabled {
+    opacity: 0;
+    pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+    .carousel-controls button {
+        opacity: 0;
+    }
+    .carousel:hover .carousel-controls button:not(:disabled),
+    .carousel:focus-within .carousel-controls button:not(:disabled) {
+        opacity: 1;
+    }
+}
+.carousel-controls button:focus-visible,
+.carousel-track:focus-visible {
+    outline: 2px solid var(--button-accent);
+    outline-offset: 2px;
+}
+@supports (corner-shape: squircle) {
+    :root {
+        --surface-radius: 22px;
+        --corner-shape: squircle;
+        --control-radius: 18px;
+        --compact-control-radius: 14px;
+        --segment-radius: calc(var(--control-radius) - 5px);
+    }
+    .app-icon {
+        border-radius: 36%;
+    }
+    .button,
+    .button-filled,
+    .button-outline,
+    .button-overlay,
+    .chip,
+    .segmented-control,
+    .segmented-control-button,
+    .form-control,
+    input[type="file"]::file-selector-button,
+    .disclosure > summary,
+    .aside-container,
+    .feedback,
+    .content-card,
+    .secondary-text-box,
+    .full-width-image,
+    .preview-image,
+    .rich-list-image,
+    .rich-list-link,
+    .app-icon,
+    .column-container,
+    .gallery-container,
+    .gallery-label-container,
+    .table-scroll {
+        corner-shape: var(--corner-shape);
     }
 }
