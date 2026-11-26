@@ -137,6 +137,8 @@
     --text-muted: #6e6e73;
     --surface-radius: 12px;
     --corner-shape: round;
+    --chevron-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6l6 6-6 6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    --chevron-optical-offset: .5px;
     --control-radius: 10px;
     --compact-control-radius: 8px;
     --segment-radius: calc(var(--control-radius) - 3px);
@@ -403,7 +405,7 @@ input[type="file"]::file-selector-button {
     width: fit-content;
     max-width: 100%;
     min-height: 36px;
-    padding: 6px 8px;
+    padding: 6px 12px;
     border-radius: var(--compact-control-radius);
     color: var(--text-primary);
     font-size: 14px;
@@ -417,21 +419,28 @@ input[type="file"]::file-selector-button {
 }
 .disclosure > summary::before {
     content: "";
-    flex: 0 0 6px;
-    width: 6px;
-    height: 6px;
-    border-right: 2px solid var(--text-muted);
-    border-bottom: 2px solid var(--text-muted);
-    transform: rotate(-45deg);
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--text-muted);
+    -webkit-mask: var(--chevron-mask) center / contain no-repeat;
+    mask: var(--chevron-mask) center / contain no-repeat;
+    transform: translateX(var(--chevron-optical-offset));
 }
 .disclosure[open] > summary::before {
-    transform: rotate(45deg);
+    transform: translateY(var(--chevron-optical-offset)) rotate(90deg);
 }
 [dir="rtl"] .disclosure > summary::before {
-    transform: rotate(135deg);
+    transform: translateX(calc(-1 * var(--chevron-optical-offset))) rotate(180deg);
 }
 [dir="rtl"] .disclosure[open] > summary::before {
-    transform: rotate(45deg);
+    transform: translateY(var(--chevron-optical-offset)) rotate(90deg);
+}
+@media (forced-colors: active) {
+    .disclosure > summary::before {
+        background-color: CanvasText;
+        forced-color-adjust: none;
+    }
 }
 .disclosure > summary:hover {
     background: var(--surface-muted);
@@ -998,13 +1007,16 @@ select.form-control:not([multiple])[size="1"] {
     stroke-linejoin: round;
 }
 .carousel-previous svg {
-    transform: rotate(180deg);
+    transform: translateX(calc(-1 * var(--chevron-optical-offset))) rotate(180deg);
+}
+.carousel-next svg {
+    transform: translateX(var(--chevron-optical-offset));
 }
 [dir="rtl"] .carousel-previous svg {
-    transform: none;
+    transform: translateX(var(--chevron-optical-offset));
 }
 [dir="rtl"] .carousel-next svg {
-    transform: rotate(180deg);
+    transform: translateX(calc(-1 * var(--chevron-optical-offset))) rotate(180deg);
 }
 .carousel-controls button:disabled {
     opacity: 0;
