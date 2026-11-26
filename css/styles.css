@@ -383,6 +383,77 @@ input[type="file"]::file-selector-button {
 .action-row-spread {
     justify-content: space-between;
 }
+.disclosure > summary {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 36px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    list-style: none;
+    cursor: pointer;
+}
+.disclosure > summary::-webkit-details-marker {
+    display: none;
+}
+.disclosure > summary::before {
+    content: "";
+    flex: 0 0 6px;
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid var(--text-muted);
+    border-bottom: 2px solid var(--text-muted);
+    transform: rotate(-45deg);
+}
+.disclosure[open] > summary::before {
+    transform: rotate(45deg);
+}
+[dir="rtl"] .disclosure > summary::before {
+    transform: rotate(135deg);
+}
+[dir="rtl"] .disclosure[open] > summary::before {
+    transform: rotate(45deg);
+}
+.disclosure > summary:hover {
+    background: var(--surface-muted);
+}
+.disclosure > summary:focus-visible {
+    outline: 2px solid var(--button-accent);
+    outline-offset: 2px;
+}
+.button-overlay {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 4px;
+    border: 0;
+    border-radius: 14px;
+    background-color: rgba(240, 240, 245, .94);
+    background-clip: content-box;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+.theme-dark .button-overlay {
+    background-color: rgba(50, 50, 55, .94);
+}
+.button-overlay:hover:not(:disabled) {
+    background-color: var(--surface);
+    color: var(--button-accent);
+}
+.button-overlay:focus-visible {
+    outline: 2px solid var(--button-accent);
+    outline-offset: 2px;
+}
 .form-actions {
     margin-block-start: 8px;
 }
@@ -743,5 +814,78 @@ textarea.form-control {
     }
     .gallery-container {
         position: absolute;
+    }
+}
+.table-scroll {
+    box-sizing: border-box;
+    max-width: 100%;
+    min-width: 0;
+    margin-block: 16px;
+    overflow-x: auto;
+    border: 1px solid var(--surface-border);
+    border-radius: var(--surface-radius);
+    background: var(--surface);
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--control-border) var(--surface-muted);
+}
+.table-scroll:focus-visible {
+    outline: 2px solid var(--button-accent);
+    outline-offset: 3px;
+}
+.table-scroll > table {
+    margin: 0;
+    width: 100%;
+    min-width: 100%;
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.5;
+}
+.table-scroll > table th,
+.table-scroll > table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--surface-border);
+}
+.table-scroll > table th {
+    position: static;
+    background: var(--surface-muted);
+    color: var(--text-primary);
+    font-weight: 600;
+    line-height: 1.4;
+}
+.table-scroll > table td {
+    vertical-align: middle;
+    font-variant-numeric: tabular-nums;
+}
+.table-scroll > table[class*="-chart"] td {
+    min-width: 6.5em;
+}
+.table-scroll > table tbody tr:nth-of-type(odd) {
+    background: var(--surface);
+}
+.table-scroll > table tbody tr:nth-of-type(even) {
+    background: var(--surface-muted);
+}
+.table-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+.table-scroll::-webkit-scrollbar-track {
+    background: var(--surface-muted);
+}
+.table-scroll::-webkit-scrollbar-thumb {
+    border: 2px solid var(--surface-muted);
+    border-radius: 999px;
+    background: var(--control-border);
+}
+@media (max-width: 640px) {
+    .table-scroll > table {
+        font-size: 13px;
+    }
+    .table-scroll > table th,
+    .table-scroll > table td {
+        padding: 8px;
+    }
+    .table-scroll > table[class*="-chart"] td {
+        min-width: 5.5em;
     }
 }
