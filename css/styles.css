@@ -13,6 +13,112 @@
     margin-top: .35em;
     margin-bottom: 0;
 }
+.rich-list-link {
+    display: grid;
+    grid-template-columns: 176px minmax(0, 1fr);
+    align-items: center;
+    gap: 28px;
+    padding-block: 28px;
+    border-bottom: 1px solid #e5e5ea;
+    color: inherit;
+}
+.rich-list-entry:first-child .rich-list-link {
+    padding-block-start: 0;
+}
+.rich-list-entry:last-child .rich-list-link {
+    border-bottom: 0;
+}
+.rich-list-link-without-image {
+    grid-template-columns: minmax(0, 1fr);
+}
+.rich-list-image {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #f2f2f7;
+}
+.rich-list-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.rich-list-copy {
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+}
+.rich-list-title {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1.3;
+    color: #111;
+}
+.rich-list-subtitle {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #666;
+}
+.rich-list-date {
+    font-size: 14px;
+    line-height: 1.45;
+    color: #666;
+}
+.rich-list-link:hover {
+    text-decoration: none;
+}
+.rich-list-link:hover .rich-list-title {
+    color: #08f;
+    text-decoration: underline;
+}
+.rich-list-link:focus-visible {
+    outline: 2px solid #08f;
+    outline-offset: 5px;
+    border-radius: 4px;
+}
+.theme-dark .rich-list-link {
+    border-color: #29292c;
+    color: inherit;
+}
+.theme-dark .rich-list-title {
+    color: #fff;
+}
+.theme-dark .rich-list-subtitle,
+.theme-dark .rich-list-date {
+    color: #999;
+}
+.theme-dark .rich-list-image {
+    background: #1c1c1e;
+}
+.theme-dark .rich-list-link:hover .rich-list-title {
+    color: #6bf;
+}
+.theme-dark .rich-list-link:focus-visible {
+    outline-color: #6bf;
+}
+@media only screen and (max-width: 640px) {
+    .rich-list-link {
+        grid-template-columns: 104px minmax(0, 1fr);
+        gap: 16px;
+        padding-block: 24px;
+    }
+    .rich-list-link-without-image {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .rich-list-title {
+        font-size: 20px;
+    }
+    .rich-list-subtitle {
+        font-size: 15px;
+    }
+    .rich-list-copy {
+        gap: 6px;
+    }
+    .rich-list-image {
+        border-radius: 8px;
+    }
+}
 @media only screen and (max-width: 1000px) {
     #content-column .subtitle {
         font-size: 21px;
