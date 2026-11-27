@@ -1073,3 +1073,79 @@ select.form-control:not([multiple])[size="1"] {
         corner-shape: var(--corner-shape);
     }
 }
+
+.article-content {
+    display: contents;
+}
+
+/* Preserve typography sibling spacing across the boxless content wrapper. */
+:is(h1,h2,h3,h4,h5,h6)+:where(.article-content)>:where(:first-child),
+:where(.article-content):has(>:is(h1,h2,h3,h4,h5,h6):where(:last-child))+*,
+:is(h1,h2,h3,h4,h5,h6)+:where(.article-content:not(:has(>*)))+* {
+    margin-top: .8em;
+}
+
+:is(p,ul)+:where(.article-content)>:where(:first-child),
+:where(.article-content):has(>:is(p,ul):where(:last-child))+*,
+:is(p,ul)+:where(.article-content:not(:has(>*)))+* {
+    margin-top: .8em;
+}
+
+:is(h1,h2,h3,h4,h5,h6)+:where(.article-content)>:is(h1,h2,h3,h4,h5,h6):where(:first-child),
+:where(.article-content):has(>:is(h1,h2,h3,h4,h5,h6):where(:last-child))+:is(h1,h2,h3,h4,h5,h6),
+:is(h1,h2,h3,h4,h5,h6)+:where(.article-content:not(:has(>*)))+:is(h1,h2,h3,h4,h5,h6) {
+    margin-top: .4em;
+}
+
+:is(p,ul)+:where(.article-content)>:is(h1,h2,h3,h4,h5,h6):where(:first-child),
+:where(.article-content):has(>:is(p,ul):where(:last-child))+:is(h1,h2,h3,h4,h5,h6),
+:is(p,ul)+:where(.article-content:not(:has(>*)))+:is(h1,h2,h3,h4,h5,h6) {
+    margin-top: 1.6em;
+}
+
+table+:where(.article-content)>h3:where(:first-child),
+:where(.article-content):has(>table:where(:last-child))+h3,
+table+:where(.article-content:not(:has(>*)))+h3 {
+    margin-top: 1.6em;
+}
+
+[class*=typography-eyebrow]+:where(.article-content)>:where(:first-child),
+:where(.article-content):has(>[class*=typography-eyebrow]:where(:last-child))+*,
+[class*=typography-eyebrow]+:where(.article-content:not(:has(>*)))+* {
+    margin-top: 0;
+}
+
+p+:where(.article-content)>a:where(:first-child),
+:where(.article-content):has(>p:where(:last-child))+a,
+p+:where(.article-content:not(:has(>*)))+a {
+    display: inline-block;
+}
+
+.typography-headline-reduced+:where(.article-content)>:is(p,ul):where(:first-child),
+:where(.article-content):has(>.typography-headline-reduced:where(:last-child))+:is(p,ul),
+h2+:where(.article-content)>p:where(:first-child),
+:where(.article-content):has(>h2:where(:last-child))+p,
+.typography-headline-reduced+:where(.article-content:not(:has(>*)))+:is(p,ul),
+h2+:where(.article-content:not(:has(>*)))+p {
+    margin-top: 1em;
+}
+
+@media only screen and (max-width: 1000px) {
+    :is(h1,h2,h3,h4,h5,h6)+:where(.article-content)>:where(:first-child),
+    :where(.article-content):has(>:is(h1,h2,h3,h4,h5,h6):where(:last-child))+*,
+    :is(h1,h2,h3,h4,h5,h6)+:where(.article-content:not(:has(>*)))+* {
+        margin-top: .6em;
+    }
+
+    :is(p,ul)+:where(.article-content)>:where(:first-child),
+    :where(.article-content):has(>:is(p,ul):where(:last-child))+*,
+    :is(p,ul)+:where(.article-content:not(:has(>*)))+* {
+        margin-top: .4em;
+    }
+
+    :is(p,ul)+:where(.article-content)>:is(h1,h2,h3,h4,h5,h6):where(:first-child),
+    :where(.article-content):has(>:is(p,ul):where(:last-child))+:is(h1,h2,h3,h4,h5,h6),
+    :is(p,ul)+:where(.article-content:not(:has(>*)))+:is(h1,h2,h3,h4,h5,h6) {
+        margin-top: 1.2em;
+    }
+}
